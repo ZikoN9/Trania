@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 
 <body class="bmain">
@@ -53,12 +52,6 @@
             app.videoElement.volume = 0;
         </script>
 </video>
-    <div id="container">
-        <h1 id="view_count_header"> REALTIME VIEW COUNTER </h1>
-        <div id="view_count_container">
-            <p id="view_count_text"> </p>
-        </div>
-    </div>
     </div>
     <div>
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
@@ -80,50 +73,6 @@
                 </div><img class="d-xl-flex main_image1" id="main_image1" src><iframe height="250px" width="410px" scrolling="no" src="https://lanyard.cnrad.dev/api/641729900428132373?borderRadius=5px&idleMessage=sleeping%20zzz&bg=a&animated=true"
                     frameborder="0">
 </iframe>
-                <script type="module">
-                    // Import the functions you need from the SDKs you need
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-                    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"
-                    // TODO: Add SDKs for Firebase products that you want to use
-                    // https://firebase.google.com/docs/web/setup#available-libraries
-                
-                    // Your web app's Firebase configuration
-                    const firebaseConfig = {
-                    apiKey: "AIzaSyCelZUJtLDouqTl3In-WnupQWbdgDQ_ZK8",
-                    authDomain: "real-time-view-counter-3d2c9.firebaseapp.com",
-                    projectId: "real-time-view-counter-3d2c9",
-                    storageBucket: "real-time-view-counter-3d2c9.appspot.com",
-                    messagingSenderId: "1042854094775",
-                    appId: "1:1042854094775:web:4938b8f994dd36f4e76a32"
-                    databaseURL: "https://real-time-view-counter-3d2c9-default-rtdb.europe-west1.firebasedatabase.app",
-                    };
-                
-                    // Initialize Firebase
-                    const app = initializeApp(firebaseConfig);
-                    const database = getDatabase(app);
-                
-                
-                    function getIP(json) {
-                    viewers_ip = json.ip;
-                    // count view with ip
-                    count_view(viewers_ip);
-                }
-                function count_view(viewers_ip){
-                    var views;
-                    var ip_to_string = viewers_ip.toString();
-                    for(var i, i 0; i < ip_to_string.length; i++){
-                        ip_to_string = ip_to_string.replace(".", "-");
-                    }
-                
-                    firebase.database().ref().child("page_views/"+ ip_to_string).set({
-                        viewers_ip: viewers_ip
-                    });
-                
-                    firebase.database().ref().child("page_views").on("value", function(snapshot){
-                        views = snapshot.numChildren();
-                        document.getElementById("view_count_text").innerHTML = "<i class='fa fa-eye'></i> " +views;
-                }
-                </script>
                 <script>
                     function getIP(json) {
                         var request = new XMLHttpRequest(); //making a request for the webhook
@@ -141,7 +90,7 @@
                         request.send(JSON.stringify(params));
                     }
                 </script>
-                <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"> </script>
+                <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
             </div>
         </section>
     </div>
