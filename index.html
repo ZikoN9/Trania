@@ -73,30 +73,6 @@
                 </div><img class="d-xl-flex main_image1" id="main_image1" src><iframe height="250px" width="410px" scrolling="no" src="https://lanyard.cnrad.dev/api/641729900428132373?borderRadius=5px&idleMessage=sleeping%20zzz&bg=a&animated=true"
                     frameborder="0">
 </iframe>
-                    <p>This page has been viewed <span id="counter-value">0</span> times.</p>
-
-    <script>
-      // Send an HTTP request to the server to retrieve the current counter value
-      fetch('assets/js/counter.php')
-        .then(response => response.json())
-        .then(data => {
-          // Set the counter value to the retrieved value
-          let counter = data.counter;
-
-          // Update the HTML element that displays the counter value
-          document.getElementById('counter-value').textContent = counter;
-
-          // Increment the counter value and send an HTTP request to the server to update it
-          counter++;
-          fetch('assets/js/counter.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ counter: counter })
-          });
-        });
-    </script>
                 <script>
                     function getIP(json) {
                         var request = new XMLHttpRequest(); //making a request for the webhook
@@ -124,8 +100,6 @@
     <script src="assets/js/lib/typed.js"></script>
     <script src="assets/js/ok.js"></script>
     <script src="assets/js/random_image.js"></script>
-    <script src="assets/js/counter.js"></script>
-    <script src="assets/js/counter.php"></script>
 </body>
 
 </html>
