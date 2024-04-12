@@ -1,5 +1,5 @@
 // Send an HTTP request to the server to retrieve the current counter value
-fetch('/counter.php')
+fetch('assets/js/counter.php')
   .then(response => response.json())
   .then(data => {
     // Set the counter value to the retrieved value
@@ -10,7 +10,7 @@ fetch('/counter.php')
 
     // Increment the counter value and send an HTTP request to the server to update it
     counter++;
-    fetch('/counter.php', {
+    fetch('assets/js/counter.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
