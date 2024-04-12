@@ -106,14 +106,6 @@
     display: flex !important
 }
 
-#view_count_text {
-    position: fixed;
-    right: 0;
-    top: 0;
-    padding: 10px;
-    z-index: 1000;
-  }
-
 .background {
     width: 100%;
     height: 100%;
